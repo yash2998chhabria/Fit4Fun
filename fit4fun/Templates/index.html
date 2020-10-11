@@ -147,45 +147,7 @@
 					</div>
 					<!-- /about content -->
 
-					<!-- Numbers -->
-					<div id="numbers">
-						<!-- row -->
-						<div class="row">
-							<!-- number -->
-							<div class="col-md-4 col-sm-4 col-xs-6">
-								<div class="number">
-									<h3><span class="counter" data-from="0" data-to="900" data-speed="1500">0</span></h3>
-									<p>Hours</p>
-								</div>
-							</div>
-							<!-- /number -->
-
-							<!-- number -->
-							<div class="col-md-4 col-sm-4 col-xs-6">
-								<div class="number">
-									<h3><span class="counter" data-from="0" data-to="750" data-speed="1500">0</span></h3>
-									<p>Minutes</p>
-								</div>
-							</div>
-							<!-- /number -->
-
-							<!-- number -->
-							<div class="col-md-4 col-sm-4 col-xs-6">
-								<div class="number">
-									<h3><span class="counter" data-from="0" data-to="50" data-speed="1500">0</span></h3>
-									<p>Seconds</p>
-								</div>
-							</div>
-							<!-- /number -->
-
-							<!-- number -->
-							<!-- <div class="col-md-3 col-sm-3 col-xs-6">
-								<div class="number">
-									<h3><span class="counter" data-from="0" data-to="20" data-speed="1500">0</span>+</h3>
-									<p>Speakers</p>
-								</div>
-							</div> -->
-							<!-- /number -->
+				
 						</div>
 						<!-- /row -->
 					</div>
@@ -261,15 +223,11 @@
 		  
 				
 				<div class="modal-body">
-		  
-				 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				  </button>        
-				  
-					<div class="embed-responsive embed-responsive-16by9">
-						<iframe class="embed-responsive-item" src="" id="video"  allowscriptaccess="always"  allow="autoplay" ></iframe>
+						<div class="embed-responsive embed-responsive-16by9">
+							<iframe class="embed-responsive-item" src="{% static 'img/videof4f.mp4' %}" allowfullscreen></iframe>
+						  </div>  
 					</div>
-				  
+
 				  
 				</div>
 		  
@@ -294,65 +252,41 @@
 				<div class="col-md-8 col-md-offset-2">
 
 					<div class="events-wrapper">
+
+						{% for activity in activities %}
 						<!-- event -->
 						<div class="event">
 							<div class="event-day">
 								<div>
-									<span class="day">1</span>
+									<span class="day">{{activity.day}}</span>
 									<span class="year">Day</span>
 								</div>
 							</div>
 							<div class="event-content">
-								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-								<h3 class="event-title">Activity Title (5-7 years)</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								<p><a data-toggle="modal" data-target="#speaker-modal-1" >Click here to Learn more</a></p>
+								<p class="event-time">(5-7 years)</p>
+								<h3 class="event-title">{{activity.name_5}} </h3>
+								<p>{{activity.oneline_5}}</p>
+								<p><a data-toggle="modal" data-target="#{{activity.name_5}}" >Click here to Learn more</a></p>
 							</div>
 						</div>
+						
 						<!-- /event -->
 
 						<!-- event -->
 						<div class="event">
 							<div class="event-hour"></div>
 							<div class="event-content">
-								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-								<h3 class="event-title">Activity Title (7-13 years)</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								<p><a data-toggle="modal" data-target="#speaker-modal-1">Click here to Learn more</a></p>
+								<p class="event-time">(5-7 years)</p>
+								<h3 class="event-title">{{activity.name_8}}</h3>
+								<p>{{activity.oneline_8}}</p>
+								<p><a data-toggle="modal" data-target="#{{activity.name_8}}">Click here to Learn more</a></p>
 							</div>
 						</div>
 						<!-- /event -->
 
+						{% endfor %}
 
-
-						<!-- event -->
-						<div class="event">
-							<div class="event-day">
-								<div>
-									<span class="day">2</span>
-									<span class="year">Day</span>
-								</div>
-							</div>
-							<div class="event-content">
-								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-								<h3 class="event-title">Activity Title (5-7 years)</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								<p><a data-toggle="modal" data-target="#speaker-modal-1">Click here to Learn more</a></p>
-							</div>
-						</div>
-						<!-- /event -->
-
-						<!-- event -->
-						<div class="event">
-							<div class="event-hour"></div>
-							<div class="event-content">
-								<p class="event-time"><i class="fa fa-clock-o"></i> 8 : 00 AM - 11 : 00 AM</p>
-								<h3 class="event-title">Activity Title (7-13 years)</h3>
-								<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-								<p><a data-toggle="modal" data-target="#speaker-modal-1">Click here to Learn more</a></p>
-							</div>
-						</div>
-						<!-- /event -->
+						
 
 
 
@@ -367,47 +301,115 @@
 
 
 				<!-- speaker modal -->
-				<div id="speaker-modal-1" class="speaker-modal modal fade">
+				{% for activity in activities %}
+				<div id="{{activity.name_5}}" class="speaker-modal modal fade">
 					<div class="modal-dialog">
 						<div class="modal-content">
 							<button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
 							<div class="modal-body">
 								<div class="row">
-									<div class="col-md-5">
-										<div class="speaker-modal-img">
-											<img src="{% static 'img/speaker-info.jpg' %}" alt="">
-										</div>
-									</div>
-									<div class="col-md-7">
+									<div class="col-md-12">
 										<div class="speaker-modal-content">
-											<h2 class="speaker-name">Activity Explanation</h2>
+											<h2 class="speaker-name">{{activity.name_5}} Explanation</h2>
 											<span class="speaker-job">- 5-7 years</span>
 
-											<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
-												irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-
-											
-
-											<div class="speaker-events">
-												<h4>Sessions</h4>
-												<div class="speaker-event">
-													<span><strong>Day 1 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
-													<p>His id altera fabellas facilisis. Has eros assueverit cu</p>
-												</div>
-
-												<div class="speaker-event">
-													<span><strong>Day 2 -</strong> February 20, 2018 8 : 00 AM - 11 : 00 AM</span>
-													<p>At mucius deserunt delicatissimi eam, labitur detraxit ut sit</p>
-												</div>
-											</div>
+											<p>{{activity.description_5}}</p>
 
 										</div>
 									</div>
 								</div>
+							<div class="row">
+								<div class = "justify-content-center">
+								{% if activity.image_1_5 %}	
+								<div class="col-md-6 mx-auto">
+									<div class="speaker-modal-img">
+										<img src="{{activity.image_1_5.url}}" alt="">
+									</div>
+								</div>
+								{% endif %}
+								{% if activity.image_1_5 %}
+								<div class="col-md-6  mx-auto">
+									<div class="speaker-modal-img">
+										<img src="{{activity.image_2_5.url}}" alt="">
+									</div>
+								</div>
+								{% endif %}
+							</div>
+						</div>
+						       {% if activity.video_5 %}
+							<div class="row mt-2">
+								<div class="col-md-12 mb-2 mx-auto">
+									<div class="embed-responsive embed-responsive-16by9">
+										<iframe class="embed-responsive-item" src="{{activity.video_5.url}}" allowfullscreen></iframe>
+									  </div>
+								</div>
+								{% endif %}
+							</div>
+								<!-- <div class="col-md-5">
+									<div class="speaker-modal-img">
+										<img src="{% static 'img/speaker-info.jpg' %}" alt="">
+									</div>
+								</div> -->
+
 							</div>
 						</div>
 					</div>
 				</div>
+				<div id="{{activity.name_8}}" class="speaker-modal modal fade">
+					<div class="modal-dialog">
+						<div class="modal-content">
+							<button type="button" class="speaker-modal-close" data-dismiss="modal"></button>
+							<div class="modal-body">
+								<div class="row">
+									<div class="col-md-12">
+										<div class="speaker-modal-content">
+											<h2 class="speaker-name">{{activity.name_8}} Explanation</h2>
+											<span class="speaker-job">- 5-7 years</span>
+
+											<p>{{activity.description_8}}</p>
+
+
+										</div>
+									</div>
+								</div>
+							<div class="row">
+								<div class = "justify-content-center">
+							{% if activity.image_1_8 %}
+								<div class="col-md-6 mx-auto">
+									<div class="speaker-modal-img">
+										<img src="{{activity.image_1_8.url}}" alt="">
+									</div>
+								</div>
+							{% endif %}	
+							{% if activity.image_2_8 %}
+								<div class="col-md-6  mx-auto">
+									<div class="speaker-modal-img">
+										<img src="{{activity.image_2_8.url}}" alt="">
+									</div>
+								</div>
+							{% endif %}	
+							</div>
+						</div>
+						{% if activity.video_8 %}
+							<div class="row mt-2">
+								<div class="col-md-12 mb-2 mx-auto">
+									<div class="embed-responsive embed-responsive-16by9">
+										<iframe class="embed-responsive-item" src="{{activity.video_8.url}}" allowfullscreen></iframe>
+									  </div>
+								</div>
+							</div>
+						{% endif %}		
+								<!-- <div class="col-md-5">
+									<div class="speaker-modal-img">
+										<img src="{% static 'img/speaker-info.jpg' %}" alt="">
+									</div>
+								</div> -->
+
+							</div>
+						</div>
+					</div>
+				</div>				
+				{% endfor %}
 
 				<div id="organiser" class="section">
 					<!-- container -->
@@ -649,7 +651,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 	<script src="{% static 'js/google-map.js' %}"></script>
 	<script src="{% static 'js/jquery.countTo.js' %}"></script>
 	<script src="{% static 'js/main.js' %}"></script>
- <script>
+ <!-- <script>
         $(document).ready(function() {
         
             // Gets the video src from the data-src on each button
@@ -686,7 +688,7 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
             });
             
             
-            </script> 
+            </script>  -->
 
 </body>
 
