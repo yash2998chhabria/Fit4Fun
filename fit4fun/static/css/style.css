@@ -219,14 +219,6 @@ textarea.input {
   transition: 0.3s all;
 }
 
-#header.transparent-navbar {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  background-color: transparent;
-  border-bottom: 1px solid #DADADA30;
-}
 
 #header.fixed-navbar {
   position: fixed !important;
