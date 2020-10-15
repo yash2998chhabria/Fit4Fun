@@ -254,6 +254,13 @@
 
 					<div class="events-wrapper">
 
+						{% if not activities %}
+						<div class="text-center">
+							<h2 style="color: #f73378;">Activites Coming Soon</h2>	
+						</div>
+						
+
+						{% else %}	
 						{% for activity in activities %}
 						<!-- event -->
 						<div class="event">
@@ -286,8 +293,7 @@
 						<!-- /event -->
 
 						{% endfor %}
-
-						
+						{% endif %}						
 
 
 
@@ -568,7 +574,7 @@
 						<p style="color: #f73378;">1)Where can I access my payment and registration information? </p>
 						<p>Your payment and registration confirmation will be sent to your registered email ID. We recommend you check your Spam in case it does not appear in your INBOX.</p>
 						<p style="color: #f73378;"> 2. How many days is this activity for and where can I view it?</p>
-						<p>The activity period will run from 21st Oct to 2nd November. Each activity for the day will be mailed to you and also be updated on our website/social media. Kindly follow the same. </p>
+						<p>The activity period will run from 28st Oct to 7th November. Each activity for the day will be mailed to you and also be updated on our website/social media. Kindly follow the same. </p>
 						<p style="color: #f73378;">3. Is there a specific time for the activity?</p>
 						<p>Activities can be taken up at anytime of the day, as per the kids’ convenience.</p>
 						<p style="color: #f73378;">4. How will my kids activities be tracked?</p>
