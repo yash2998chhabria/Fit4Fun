@@ -9,7 +9,7 @@ class activity(models.Model):
 	description_5 = models.CharField(max_length=2000,default="",null=False)
 	image_1_5 = models.ImageField(upload_to='activity_images',default="",null=True,blank=True)
 	image_2_5 = models.ImageField(upload_to='activity_images',default="",null=True,blank=True)
-	video_5 = models.FileField(upload_to='videos',default="",null=True,blank=True)
+	video_5 = models.CharField(max_length=500,default="")
 	unique_one_word_name_5 = models.CharField(max_length=10,default="",null=False)
 
 	name_8 = models.CharField(max_length=50,default="",null=False)
@@ -22,3 +22,6 @@ class activity(models.Model):
 
 	def __str__(self):
 			return self.name_5
+
+
+
