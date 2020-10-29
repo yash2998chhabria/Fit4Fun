@@ -11,7 +11,7 @@ class activity(models.Model):
 	description_5 = RichTextField(default=1)
 	image_1_5 = models.ImageField(upload_to='activity_images',default="",null=True,blank=True)
 	image_2_5 = models.ImageField(upload_to='activity_images',default="",null=True,blank=True)
-	video_5 = models.CharField(max_length=500,default="")
+	video_5 = models.CharField(max_length=500,default="",null=True,blank=True)
 	unique_one_word_name_5 = models.CharField(max_length=10,default="",null=False)
 
 	name_8 = models.CharField(max_length=50,default="",null=False)

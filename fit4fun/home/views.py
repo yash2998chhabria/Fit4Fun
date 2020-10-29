@@ -3,7 +3,7 @@ from .models import activity
 from django_user_agents.utils import get_user_agent
 # Create your views here.
 def home(request):
-    activities = activity.objects.all()
+    activities = activity.objects.all().order_by('-day')
     context = {
         'activities':activities
     }
